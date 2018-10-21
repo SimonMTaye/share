@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-main {
+  background-color: #2b2b2b;
+  color: #838383;
+}
+.bg-inverted {
+  background-color: #838383;
+  color: #2b2b2b;
+}
+@font-face {
+  font-family: K2D;
+  src: url("../font/K2D/K2D-Regular.woff") format("woff");
+}
+body {
+  font-family: "K2D";
+  background-color: #2b2b2b;
+  color: #838383;
+}
+p.intro {
+  color: #838383;
+  font-size: 45px;
+}
+p {
+  font-family: "K2D";
+  display: flex;
+}
+.center {
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+.center-flex-v {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+.border.border-dark {
+  border-color: #838383;
+}
+.invert:hover {
+  color: #2b2b2b;
+  background-color: #838383;
+}
+.invert:hover p {
+  color: #2b2b2b;
+}

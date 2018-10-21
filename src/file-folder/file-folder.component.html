@@ -1,0 +1,14 @@
+<div class="container-fluid ">
+    <div [class]="GetClass()"  >
+      <div class="col-8" (click)="onClick()">
+        <img [src]="item.icon"> &nbsp; &nbsp; &nbsp;
+        <p style="display:inline">{{item.name}}</p>
+      </div>
+      <div class="col-2">
+        <p style="display:inline">{{GetFormatedSize()}}</p>
+      </div>
+      <div class="col-2">
+      <p style="display:inline">{{item.creationTime}}</p>
+      </div>
+    </div>
+  </div>

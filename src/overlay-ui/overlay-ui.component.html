@@ -1,0 +1,6 @@
+<nav class="navbar shadow sticky-top bg-main" style="height:5vh;">
+  <p class="ml-auto center-flex-v" *ngIf="this.fileManager.itemNumber !==0">{{this.fileManager.itemNumber}} item(s) selected</p>
+</nav>
+<div class="border border-dark rounded-circle bg-main shadow center-flex invert" style="position:fixed; left:46%; bottom:10%; min-height:100px; height: 6vw; min-width:100px; width: 6vw; z-index: 2;">
+  <p style="font-size: 25px;" (click)="onSend()">SEND</p>
+</div>
