@@ -7,6 +7,10 @@ import { Item } from "./item-model";
   providedIn: "root"
 })
 export class DirScannerService {
+
+  prevDir: string;
+  curDir: string;
+  
   ScanDirectory(dir: string): { folders: Array<Item>; files: Array<Item> } {
     let folderItems: Array<Item> = [];
     let fileItems: Array<Item> = [];

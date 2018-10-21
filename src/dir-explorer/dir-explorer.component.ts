@@ -11,22 +11,28 @@ const homedir: string = os.homedir();
   styleUrls: ["./dir-explorer/dir-explorer.component.css"]
 })
 export class DirExplorerComponent implements OnInit {
-  dir: string;
+
   dirFolders: Array<Item> = [];
   dirFiles: Array<Item> = [];
 
-  GetDirInfo() {
-    if (!this.dir) {
-      this.dir = homedir;
+  GetDirInfo(dir : string) {
+    this.dirFiles = this.scanner.ScanDirectory(dir).files;
+    this.dirFolders = this.scanner.ScanDirectory(dir).folders;
+  }
+
+  onItemClicked(itemInfo: {isDir: boolean, path: string }){
+    if(itemInfo.isDir){
+      this.GetDirInfo(itemInfo.path)
+      console.log('Directory Clicked')
+    } else {
+      console.log('File clicked')
     }
-    this.dirFiles = this.scanner.ScanDirectory(this.dir).files;
-    this.dirFolders = this.scanner.ScanDirectory(this.dir).folders;
   }
 
   ngOnInit() {}
 
   constructor(private scanner: DirScannerService) {
-    this.GetDirInfo();
+    this.GetDirInfo(homedir);
     console.log(this.dirFiles);
   }
 }

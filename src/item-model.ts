@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as path from 'path'
+// import * as path from 'path'
 
 export class Item {
   path: string;
@@ -29,12 +29,12 @@ export class Item {
     
     this.icon = `./assets/icons/${this.type}.png`
     this.accessTime = thisStat.atime.toDateString();
-    this.creationTime = thisStat.birthtime.toDateString();
+    this.creationTime = thisStat.birthtime.toDateString().slice(4);
   
     if (thisStat.ctime.getTime() > thisStat.mtime.getTime()) {
-      this.modifiedTime = thisStat.ctime.toDateString();
+      this.modifiedTime = thisStat.ctime.toDateString().slice(4);;
     } else {
-      this.modifiedTime = thisStat.mtime.toDateString();
+      this.modifiedTime = thisStat.mtime.toDateString().slice(4);;
     }
 
     this.fileSize = thisStat.size;

@@ -6,15 +6,15 @@
         <p>Name</p>
       </div>
       <div class="col-2">
-        <p>Size</p>
+        <p style="justify-content: center;">Size</p>
       </div>
       <div class="col-2">
-        <p>Date</p>
+        <p style="justify-content: center;">Date</p>
       </div>
     </div>
   </div>
 </div>
 <div id="main" class="container-fluid bg-main" style="height:100vh">
-  <app-file-folder *ngFor="let item of dirFolders" [item]="item"></app-file-folder>
+  <app-file-folder (clicked)="onItemClicked($event)" *ngFor="let item of dirFolders" [item]="item"></app-file-folder>
   <app-file-folder *ngFor="let item of dirFiles" [item]="item"></app-file-folder>
 </div>
