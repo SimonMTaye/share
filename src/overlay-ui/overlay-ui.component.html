@@ -1,5 +1,22 @@
 <nav class="navbar shadow sticky-top bg-main" style="height:5vh;">
-  <p class="ml-auto center-flex-v" *ngIf="this.fileManager.itemNumber !==0">{{this.fileManager.itemNumber}} item(s) selected</p>
+  <div class="mr-auto">
+    <div class="border border-invisible rounded-circle invert center-flex" style="display:inline-block; height:30px; width: 30px"
+      (click)="onNavClick('back')">
+      <img src="./assets/icons/back-arrow.png" style="height:20px">
+    </div>
+    &nbsp; &nbsp;
+    <div class="border border-invisible rounded-circle invert center-flex" style="display:inline-block; height:30px; width: 30px"
+      (click)="onNavClick('forward')">
+      <img src="./assets/icons/forward-arrow.png" style="height:20px">
+    </div>
+    &nbsp; &nbsp;
+    <div class="border border-invisible rounded-circle center-flex" style="display:inline-block; height:30px; width: 30px"
+    (click)="onNavClick('home')">
+      <img src="./assets/icons/home.png" style="height:20px">
+    </div>
+  </div>
+  <p class="ml-auto center-flex-v" *ngIf="this.fileManager.itemNumber !==0">{{this.fileManager.itemNumber}} item(s)
+    selected</p>
 </nav>
 <div class="border border-dark rounded-circle bg-main shadow center-flex invert" style="position:fixed; left:46%; bottom:10%; min-height:100px; height: 6vw; min-width:100px; width: 6vw; z-index: 2;">
   <p style="font-size: 25px;" (click)="onSend()">SEND</p>

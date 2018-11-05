@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FileManagerService } from '../file-manager.service';
 
 @Component({
@@ -8,8 +8,14 @@ import { FileManagerService } from '../file-manager.service';
 })
 export class OverlayUiComponent implements OnInit {
 
+  @Output() navclick = new EventEmitter<string>();
+
   constructor(private fileManager: FileManagerService) { }
 
+  onNavClick(button: string){
+    this.navclick.emit(button)
+    console.log(button + ' button clicked')
+  }
 
   onSend() {
     //this.fileManager.ClearItems();
