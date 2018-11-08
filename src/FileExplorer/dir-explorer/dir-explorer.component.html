@@ -1,4 +1,4 @@
-<app-overlay-ui (navclick)="onNavButtonsClicked($event)"></app-overlay-ui>
+<file-overlay-ui (navclick)="onNavButtonsClicked($event)"></file-overlay-ui>
 <div class="container-fluid bg-inverted" style="height:4vh">
   <div class="container bg-inverted shadow-sm">
     <div class="row">
@@ -15,6 +15,6 @@
   </div>
 </div>
 <div id="main" class="container-fluid bg-main" style="height:100vh">
-  <app-file-folder (clicked)="onItemClicked($event)" *ngFor="let item of dirFolders" [item]="item"></app-file-folder>
-  <app-file-folder *ngFor="let item of dirFiles" [item]="item"></app-file-folder>
+  <file-file-folder (clicked)="onItemClicked($event)" *ngFor="let item of dirFolders" [item]="item"></file-file-folder>
+  <file-file-folder *ngFor="let item of dirFiles" [item]="item"></file-file-folder>
 </div>

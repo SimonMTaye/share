@@ -1,15 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { DirScannerService } from "../dir-scanner.service";
-import { Item } from "../item-model";
+import { DirScannerService } from "../../dir-scanner.service";
+import { Item } from "../../item-model";
 
 import * as os from "os";
 import * as path from 'path'
 const homedir: string = os.homedir();
 
 @Component({
-  selector: "app-dir-explorer",
-  templateUrl: "./dir-explorer/dir-explorer.component.html",
-  styleUrls: ["./dir-explorer/dir-explorer.component.css"]
+  moduleId: module.id,
+  selector: "file-dir-explorer",
+  templateUrl: "./dir-explorer.component.html",
+  styleUrls: ["./dir-explorer.component.css"]
 })
 export class DirExplorerComponent implements OnInit {
 

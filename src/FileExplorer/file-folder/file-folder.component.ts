@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-import { Item } from "../item-model";
-import { FileManagerService } from "../file-manager.service";
+import { Item } from "../../item-model";
+import { FileManagerService } from "../../file-manager.service";
 
 @Component({
-  selector: "app-file-folder",
-  templateUrl: "./file-folder/file-folder.component.html",
-  styleUrls: ["./file-folder/file-folder.component.css"]
+  moduleId: module.id,
+  selector: "file-file-folder",
+  templateUrl: "./file-folder.component.html",
+  styleUrls: ["./file-folder.component.css"]
 })
 export class FileFolderComponent implements OnInit {
   @Input()
