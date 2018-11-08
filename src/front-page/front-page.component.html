@@ -1,10 +1,16 @@
 <div class="container-fluid" style="height:100vh">
   <div class="row" style="height: 100%;">
-    <div class="col-6 bg-main border-right border-dark shadow invert center-flex" (click)="Connect()" style="height: 100%; display: flex;">
-      <p class="intro">HOST</p>
+    <div class="col-6 bg-main border-right border-dark shadow invert center-flex" (click)="Explore()" style="height: 100%; display: flex;">
+      <div>
+        <p class="intro">HOST CONNECTION</p> <br>
+        <p class="sub"> Allow client device to direclty access this PC's filesystem</p>
+      </div>
     </div>
     <div class="col-6 bg-main border-left border-dark shadow invert center-flex" (click)="Host()" style="height: 100%; display: flex">
-      <p class="intro">CONNECT</p>
+      <div>
+        <p class="intro">CHOOSE FILES TO SEND</p> <br>
+        <p class="sub"> Send files you select to the client</p>
+      </div>
     </div>
   </div>
 </div>

@@ -16,18 +16,11 @@ body {
   background-color: #2b2b2b;
   color: #838383;
 }
-p.intro {
-  color: #838383;
-  font-size: 45px;
-}
 p {
   font-family: "K2D";
-  display: flex;
 }
 .center {
-  top: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin : auto;
   text-align: center;
 }
 .center-flex {
@@ -57,8 +50,12 @@ p {
   border-color: #838383;
 
 }
-
 .invert:hover p {
   color: #2b2b2b;
 }
-
+.invert:hover div p {
+  color: #2b2b2b;
+}
+.muted {
+  color: #555555;
+}
