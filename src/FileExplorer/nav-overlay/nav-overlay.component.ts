@@ -1,26 +1,25 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FileManagerService } from '../../file-manager.service';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: 'file-overlay-ui',
-  templateUrl: './overlay-ui.component.html',
-  styleUrls: ['./overlay-ui.component.css']
+  selector: 'file-nav-overlay',
+  templateUrl: './nav-overlay.component.html',
 })
-export class OverlayUiComponent implements OnInit {
+export class NavOverlayComponent implements OnInit {
 
   @Output() navclick = new EventEmitter<string>();
 
-  constructor(private fileManager: FileManagerService) { }
+  constructor(public fileManager: FileManagerService, private router: Router) { }
 
   onNavClick(button: string){
     this.navclick.emit(button)
-    console.log(button + ' button clicked')
   }
 
   onSend() {
-    //this.fileManager.ClearItems();
-    //sendItem function.
+    this.router.navigate(['host'])
+    this.fileManager.SendItems();
     console.log('Items being sent')
   }
 

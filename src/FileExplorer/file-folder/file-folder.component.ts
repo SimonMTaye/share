@@ -14,9 +14,9 @@ export class FileFolderComponent implements OnInit {
   preventSimpleClick: boolean;
   private timer: any;
 
+
   @Output()
   clicked = new EventEmitter<{ isDir: boolean; path: string }>();
-  selected: boolean = false;
 
   GetFormatedSize(): string {
     switch (true) {
@@ -39,25 +39,27 @@ export class FileFolderComponent implements OnInit {
     this.timer = setTimeout(() => {
       if (!this.preventSimpleClick) {
         this.fileMan.ItemClicked(this.item);
-        this.selected = !this.selected;
+        // this.selected = !this.selected;
       }
     }, delay);
   }
   onDoubleClick() {
     this.preventSimpleClick = true;
     clearTimeout(this.timer);
-    this.clicked.emit({ isDir: this.item.isDirectory, path: this.item.path });
+    if(this.fileMan.itemNumber === 0){
+    this.clicked.emit({ isDir: this.item.isDirectory, path: this.item.path })
+    };
   }
 
-  GetClass(): string {
-    if (!this.selected) {
+  GetClass(isSelected:boolean): string {
+    if (!isSelected) {
       return "row my-2 bg-main";
     } else {
       return "row my-2 bg-inverted";
     }
   }
 
-  constructor(private fileMan: FileManagerService) {}
+  constructor(public fileMan: FileManagerService) {}
 
   ngOnInit() {}
 }

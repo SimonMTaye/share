@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-front-page',
@@ -7,16 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
-  Connect(){
-    console.log('Connecting')
+  Explore() {
+    console.log('Exploring')
+    this.router.navigate(['explore'])
   }
-  Host(){
-    console.log('Hosting')
+  Host() {
+    this.router.navigate(['landing'])
+    console.log('landing')
   }
 
 }

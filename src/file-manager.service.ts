@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import {Item} from './item-model'
+import { Item } from './item-model'
+import { NetworkManagerService } from './network-manager.service';
 
 @Injectable({
   providedIn: "root"
@@ -9,6 +10,14 @@ export class FileManagerService {
   get itemNumber(){
     return this.selectedItems.length
   }
+  get itemPath() {
+    let pathArray: Array<string> = []
+    this.selectedItems.forEach((item) => {
+      pathArray.push(item.path);
+    })
+    return pathArray;
+  }
+
   ItemClicked(item: Item) {
     if(this.CheckIfItemSelected(item)) {
       this.UnselectItem(item)
@@ -30,14 +39,14 @@ export class FileManagerService {
     });
     this.selectedItems.splice(itemIndex, 1);
   }
-  private ClearItems() {
+  ClearItems() {
     this.selectedItems = [];
   }
   SendItems() {
-    //NetworkMan.sendItems()
+    this.networkMan.SendFiles();
     this.ClearItems();
   }
-  CheckIfItemSelected(item: Item) {
+  CheckIfItemSelected(item: Item) :boolean {
     let itemIndex = this.selectedItems.findIndex(storedItem => {
       return storedItem === item;
     });
@@ -49,5 +58,5 @@ export class FileManagerService {
   }
 
 
-constructor() { }
+constructor(private networkMan: NetworkManagerService) { }
 }
