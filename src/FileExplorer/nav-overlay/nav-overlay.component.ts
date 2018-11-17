@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FileManagerService } from '../../file-manager.service';
 import { Router } from '@angular/router';
+import { NetworkManagerService } from '../../network-manager.service';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +12,7 @@ export class NavOverlayComponent implements OnInit {
 
   @Output() navclick = new EventEmitter<string>();
 
-  constructor(public fileManager: FileManagerService, private router: Router) { }
+  constructor(public fileManager: FileManagerService, private router: Router, private networkMan: NetworkManagerService) { }
 
   onNavClick(button: string){
     this.navclick.emit(button)
@@ -19,7 +20,7 @@ export class NavOverlayComponent implements OnInit {
 
   onSend() {
     this.router.navigate(['host'])
-    this.fileManager.SendItems();
+    this.networkMan.SendFiles()
     console.log('Items being sent')
   }
 

@@ -13,6 +13,7 @@ export class FileFolderComponent implements OnInit {
   item: Item;
   preventSimpleClick: boolean;
   private timer: any;
+  isSelected = false;
 
 
   @Output()
@@ -35,11 +36,11 @@ export class FileFolderComponent implements OnInit {
     this.timer = 0;
     this.preventSimpleClick = false;
     let delay = 200;
+    this.isSelected = !this.isSelected;
 
     this.timer = setTimeout(() => {
       if (!this.preventSimpleClick) {
-        this.fileMan.ItemClicked(this.item);
-        // this.selected = !this.selected;
+        this.fileMan.ItemClicked(this.item);        
       }
     }, delay);
   }
@@ -51,8 +52,8 @@ export class FileFolderComponent implements OnInit {
     };
   }
 
-  GetClass(isSelected:boolean): string {
-    if (!isSelected) {
+  GetClass(): string {
+    if (!this.isSelected) {
       return "row my-2 bg-main";
     } else {
       return "row my-2 bg-inverted";

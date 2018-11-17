@@ -1,5 +1,5 @@
 <div class="container-fluid ">
-    <div [class]="GetClass(this.fileMan.CheckIfItemSelected(this.item))"  >
+    <div [class]="GetClass()"  >
       <div class="col-8" (click)="onClick()" (dblclick)="onDoubleClick()">
         <img [src]="item.icon"> &nbsp; &nbsp; &nbsp;
         <p style="display:inline">{{item.name}}</p>
