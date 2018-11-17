@@ -71,6 +71,9 @@ export class NetworkManagerService {
 
   CreateArchive() {
     let filesZip = archiver("zip", { store: true });
+    if(fs.existsSync(os.tmpdir() + "/temp.zip")){
+      fs.unlinkSync(os.tmpdir() + "/temp.zip")
+    }
     let output = fs.createWriteStream(os.tmpdir() + "/temp.zip");
 
     filesZip.pipe(output);
