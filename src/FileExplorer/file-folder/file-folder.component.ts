@@ -15,20 +15,23 @@ export class FileFolderComponent implements OnInit {
   private timer: any;
   isSelected = false;
 
-
   @Output()
   clicked = new EventEmitter<{ isDir: boolean; path: string }>();
 
   GetFormatedSize(): string {
-    switch (true) {
-      case this.item.fileSize > 1000:
-        return `${this.item.fileSize / 1000} KB`;
-      case this.item.fileSize > 1000000:
-        return `${this.item.fileSize / 1000000} MB`;
-      case this.item.fileSize > 1000000000:
-        return `${this.item.fileSize / 1000000000} GB`;
-      default:
-        return `${this.item.fileSize} Bytes`;
+    if (this.item.isDirectory) {
+      return `${this.item.fileSize} item(s)`
+    } else {
+      switch (true) {
+        case this.item.fileSize > 1000:
+          return `${this.item.fileSize / 1000} KB`;
+        case this.item.fileSize > 1000000:
+          return `${this.item.fileSize / 1000000} MB`;
+        case this.item.fileSize > 1000000000:
+          return `${this.item.fileSize / 1000000000} GB`;
+        default:
+          return `${this.item.fileSize} Bytes`;
+      }
     }
   }
 
@@ -40,16 +43,16 @@ export class FileFolderComponent implements OnInit {
 
     this.timer = setTimeout(() => {
       if (!this.preventSimpleClick) {
-        this.fileMan.ItemClicked(this.item);        
+        this.fileMan.ItemClicked(this.item);
       }
     }, delay);
   }
   onDoubleClick() {
     this.preventSimpleClick = true;
     clearTimeout(this.timer);
-    if(this.fileMan.itemNumber === 0){
-    this.clicked.emit({ isDir: this.item.isDirectory, path: this.item.path })
-    };
+    if (this.fileMan.itemNumber === 0) {
+      this.clicked.emit({ isDir: this.item.isDirectory, path: this.item.path });
+    }
   }
 
   GetClass(): string {

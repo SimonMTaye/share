@@ -22,21 +22,25 @@ export class Item {
 
     this.isDirectory = thisStat.isDirectory();
     if (this.isDirectory) {
-      this.type = 'folder';
+      this.type = "folder";
     } else {
-      this.type = 'blank-file';
-    }
-    
-    this.icon = `./assets/icons/${this.type}.png`
-    this.accessTime = thisStat.atime.toDateString();
-    this.creationTime = thisStat.birthtime.toDateString().slice(4);
-  
-    if (thisStat.ctime.getTime() > thisStat.mtime.getTime()) {
-      this.modifiedTime = thisStat.ctime.toDateString().slice(4);;
-    } else {
-      this.modifiedTime = thisStat.mtime.toDateString().slice(4);;
+      this.type = "blank-file";
     }
 
-    this.fileSize = thisStat.size;
+    this.icon = `./assets/icons/${this.type}.png`;
+    this.accessTime = thisStat.atime.toDateString();
+    this.creationTime = thisStat.birthtime.toDateString().slice(4);
+
+    if (thisStat.ctime.getTime() > thisStat.mtime.getTime()) {
+      this.modifiedTime = thisStat.ctime.toDateString().slice(4);
+    } else {
+      this.modifiedTime = thisStat.mtime.toDateString().slice(4);
+    }
+
+    if (this.isDirectory) {
+      this.fileSize = fs.readdirSync(this.path).length;
+    } else {
+      this.fileSize = thisStat.size;
+    }
   }
 }
