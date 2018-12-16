@@ -2,7 +2,7 @@
   "name": "share",
   "productName": "share",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A file sharing app",
   "main": "src/index.ts",
   "scripts": {
     "start": "electron-forge start",
@@ -42,7 +42,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "share"
+        "name": "Share"
       }
     }
   },
@@ -52,7 +52,9 @@
     "@angular/core": "^6.1.10",
     "@angular/platform-browser": "^6.1.10",
     "@angular/platform-browser-dynamic": "^6.1.10",
+    "@angular/platform-server": "^6.1.10",
     "@angular/router": "^6.1.10",
+    "@nguniversal/express-engine": "^7.0.2",
     "@types/archiver": "^2.1.2",
     "@types/electron": "^1.6.10",
     "archiver": "^3.0.0",
@@ -67,6 +69,7 @@
     "popper.js": "^1.14.4",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3",
+    "ts-loader": "^5.3.0",
     "tslib": "^1.9.3",
     "zone.js": "^0.8.26"
   },
